@@ -30,7 +30,8 @@
         #map {
             width: 100vw;
             height: 100vh;
-            background-color: blue;
+            background-image: url('https://media.giphy.com/media/l2Sqc3POpzkj5r8SQ/giphy.gif');
+            background-size: cover;
         }
 
         .wrapper {
@@ -42,13 +43,32 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 80px;
             z-index: 10000000;
             pointer-events: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            padding: 15px 15px;
+            box-sizing: border-box;
+        }
+
+        .form-control {
+            box-sizing: border-box;
         }
 
         #adresse {
             pointer-events: initial;
+        }
+
+        @media screen and (max-width: 660px) {
+            #hud {
+                justify-content: flex-end;
+                padding: 10px 10px;
+            }
+            #adresse {
+                width: calc(100vw - 70px);
+            }
         }
     </style>
 </head>
@@ -57,13 +77,9 @@
     <div class="wrapper">
         <div id="map"></div>
         <div id="hud" class="position-absolute">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-xs-10 offset-md-3 offset-xs-2 mt-4">
-                        <input name="adresse" type="text" class="form-control form-control-lg shadow" id="adresse"
-                            placeholder="Rechercher votre domicile" autocomplete="off">
-                    </div>
-                </div>
+            <div>
+                <input name="adresse" type="text" class="form-control form-control-lg shadow" id="adresse"
+                    placeholder="Rechercher votre domicile" autocomplete="off">
             </div>
         </div>
     </div>
