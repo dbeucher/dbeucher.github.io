@@ -1,4 +1,4 @@
-let position
+let position = {}
 let map
 let markers
 let tiles
@@ -27,9 +27,6 @@ const getCurrentLocation = () => {
 
 const initMap = () => {
     loadMap()
-    tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map)
 
     findAddress()
 
@@ -37,6 +34,9 @@ const initMap = () => {
 }
 
 const positionUpdate = () => {
+    if (!map) {
+        loadMap()
+    }
     markers.clearLayers()
     L.marker([position.latitude, position.longitude])
         .addTo(markers)
@@ -56,6 +56,9 @@ const positionUpdate = () => {
 const loadMap = () => {
     map = L.map('map').setView([position.latitude, position.longitude], 20)
     markers = L.layerGroup().addTo(map)
+    tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map)
 }
 
 const findAddress = () => {
