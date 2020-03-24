@@ -33,9 +33,7 @@ const initMap = () => {
 
     findAddress()
 
-    tiles.once('load', () => {
-        positionUpdate()
-    })
+    positionUpdate()
 }
 
 const positionUpdate = () => {
