@@ -60,8 +60,6 @@ const loadMap = () => {
     markers = L.layerGroup().addTo(map)
 }
 
-
-
 const findAddress = () => {
     fetch(`https://api-adresse.data.gouv.fr/reverse/?lon=${position.longitude}&lat=${position.latitude}`)
         .then((response) => response.json())
