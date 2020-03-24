@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run limit</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/leaflet/dist/leaflet.css">
+    <style>
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100%;
+        }
+
+        body {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100%;
+            background-color: whitesmoke;
+        }
+
+        #map {
+            width: 100vw;
+            height: 100vh;
+            background-color: blue;
+        }
+        .wrapper {
+            width: 100vw;
+            height: 100vh;
+        }
+        #hud {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10000000;
+            pointer-events: none;
+        }
+        #adresse {
+            pointer-events: initial;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="map"></div>
+        <div id="hud" class="position-absolute">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 offset-3 mt-4">
+                        <input name="adresse" type="text" class="form-control form-control-lg shadow" id="adresse" placeholder="Rechercher votre domicile" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./node_modules/leaflet/dist/leaflet-src.js"></script>
+    <script src="./asset/js/app.js"></script>
+</body>
+
+</html>
