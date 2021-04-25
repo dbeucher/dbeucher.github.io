@@ -2,6 +2,7 @@ let position = {}
 let map
 let markers
 let tiles
+const distance = 10000;
 
 const hasGeolocationSupport = () => {
     if (!navigator.geolocation) {
@@ -45,7 +46,7 @@ const positionUpdate = () => {
 
     let circle = L.circle([position.latitude, position.longitude], {
         color: 'red',
-        radius: 1000
+        radius: distance
     }).addTo(markers)
 
     map.fitBounds(circle.getBounds({
@@ -54,7 +55,7 @@ const positionUpdate = () => {
 }
 
 const loadMap = () => {
-    map = L.map('map').setView([position.latitude, position.longitude], 20)
+    map = L.map('map').setView([position.latitude, position.longitude], 24)
     markers = L.layerGroup().addTo(map)
     tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
