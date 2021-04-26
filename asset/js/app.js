@@ -105,6 +105,8 @@ adresseInput.addEventListener('keyup', function (e) {
                     })
 
                 } else {
+                    document.getElementById('adresse').value = response.feature[0].properties.label;
+                    document.getElementById('propositions').innerHTML = '';
                     position.latitude = response.features[0].geometry.coordinates[1]
                     position.longitude = response.features[0].geometry.coordinates[0]
                     positionUpdate()
